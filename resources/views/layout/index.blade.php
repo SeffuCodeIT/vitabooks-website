@@ -27,8 +27,24 @@
     <link rel="stylesheet" href="{{asset("assets/css/icomoon.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
     <link rel="stylesheet" href="{{asset("assets/singlestyle.css")}}">
+    {{--    mneti huru--}}
+    {{--    <link rel="shortcut icon" href="{{asset("assetsproj/img/favicon.png")}}">--}}
+    {{--    <!-- ===========  All Stylesheet ================= -->--}}
+    {{--    <!--  Icon css plugins -->--}}
+    <link rel="stylesheet" href="{{asset("assetsproj/css/icons.css")}}">
+    {{--    <!--  animate css plugins -->--}}
+    {{--    <link rel="stylesheet" href="{{asset("assetsproj/css/animate.css")}}">--}}
+    {{--    <!--  magnific-popup css plugins -->--}}
+    {{--    <link rel="stylesheet" href="{{asset("assetsproj/css/magnific-popup.css")}}">--}}
+    {{--    <!-- metismenu css file -->--}}
+    {{--    <link rel="stylesheet" href="{{asset("assetsproj/css/metismenu.css")}}">--}}
+    {{--    <!--  main style css file -->--}}
+    <link rel="stylesheet" href="{{asset("assetsproj/css/style.css")}}">
 
+    <script src="https://kit.fontawesome.com/a904b4a626.js" crossorigin="anonymous"></script>
     <!-- CSS only -->
+    {{--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"--}}
+    {{--          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
@@ -37,7 +53,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.blade.html">Vitabooks</a>
+        <a class="navbar-brand" href="{{route('index')}}">Vitabooks</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -67,6 +83,20 @@
                         </li>
                     @endif
                 @else
+                    <?php
+
+                    $user = Auth::user();
+                    $cart = \App\Models\Cart::where('phone', $user->phone)->count();
+
+
+                    ?>
+
+                    {{--cart--}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('showCart')}}">Cart <i
+                                class="fas fa-shopping-cart"></i> {{$cart}}</a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -101,42 +131,43 @@
             <div class="col-md-3">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">About Us</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <p>An independent Kenyan publisher supporting people’s struggles to create societies based on the
+                        principles of equality and justice.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a href="https://twitter.com/VitaBooks"><span
+                                    class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.facebook.com/vitabookskenya"><span
+                                    class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.instagram.com/vitabooks1_kenya/?hl=en"><span
+                                    class="icon-instagram"></span></a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Recent Blog</h2>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4"
-                           style="background-image: url({{asset('assets/images/image_1.jpg')}});"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    {{--<!--                    --><?php--}}
+                    <?php
+                    use Illuminate\Support\Facades\Auth;$posts = \App\Models\Blog::limit(3)->get();
+                    //                    $user = Auth::user()->name;
+                    //                    $comments = \App\Models\Comm
+
+                    ?>
+                    @foreach ($posts as $post)
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4"
+                               style="background-image: url({{url('/blog-pics/'.$post->cover_pic)}});"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">{{$post->title}}</a>
+                                </h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span>{{$post->updated_at}}</a></div>
+                                    {{--                                    <div><a href="#"><span class="icon-person"></span> {{$user}}</a></div>--}}
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4"
-                           style="background-image: url({{asset('assets/images/image_2.jpg')}});"></a>
-                        <div class="text">
-                            <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                            <div class="meta">
-                                <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-2">
@@ -157,11 +188,12 @@
                     <h2 class="ftco-heading-2">Have a Questions?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            <li><span class="icon icon-map-marker"></span><span class="text">UniWay House, Opposite Univeristy of Nairobi</span>
                             </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span
-                                        class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                                        class="text">0773987487</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span
+                                        class="text">vitabook.co.ke</span></a>
                             </li>
                         </ul>
                     </div>
@@ -179,7 +211,7 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                     All rights reserved | Made with <i class="icon-heart" aria-hidden="true"></i> by <a
-                        href="https://colorlib.com" target="_blank">General Panga</a></p>
+                        href="https://twitter.com/Therealpunduh" target="_blank">General Panga</a></p>
             </div>
         </div>
     </div>

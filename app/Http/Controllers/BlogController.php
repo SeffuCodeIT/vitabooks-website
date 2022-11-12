@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Comments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -63,9 +64,10 @@ class BlogController extends Controller
     {
         //
         $blog = Blog::findOrFail($id);
+        $comments = Comments::all();
 
 //        return $blog; //returns the fetched posts
-        return view('main.singleblog', compact('blog'));
+        return view('main.singleblog', compact('blog', 'comments'));
     }
 
     /**

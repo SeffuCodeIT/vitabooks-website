@@ -32,7 +32,7 @@
 
             </div>
             <div class="container">
-                <h1 style="text-align:center;">About Vitabooks</h1>
+                <h1 style="text-align:center;">About The Kenyan Socialist Magazine</h1>
                 <p style="text-align:center;">
                     In its first two years or so, it published a number of book and started the free on-line journal,
                     The

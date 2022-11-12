@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Books;
+use App\Models\Comments;
+use App\Models\Contacts;
+use App\Models\Media;
+use App\Models\Order;
+use App\Models\Projects;
 use App\Models\Socialist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,18 +45,24 @@ class IndexController extends Controller
     public function media()
     {
         //
-        return view('main.media');
+        $media = Media::all();
+
+        return view('main.media', compact('media'));
     }
 
     public function blog()
     {
         //
+        $posts = Blog::all(); //fetch all blog posts from DB
+        $comments = Comments::all();
+//        $post_id = Comments::all()->post_id;
+
         $user = Auth::user()->id;
 //        $posterId = Blog()->id;
-        $posts = Blog::all(); //fetch all blog posts from DB
+
 //        return $posts;
 //        return $posterId;
-        return view('main.blog', compact('posts', 'user'));
+        return view('main.blog', compact('posts', 'user', 'comments'));
 //        return view('main.blog', compact('posts'));
     }
 
@@ -64,15 +75,18 @@ class IndexController extends Controller
     public function projects()
     {
         //
-        return view('main.projects');
+        $project = Projects::all();
+        return view('main.projects', compact('project'));
     }
 
     public function admin()
     {
         //
         $user_id = Auth::user()->id;
+        $orders = Order::all();
+        $contact = Contacts::all();
 
-        return view('main.admin', compact('user_id'));
+        return view('main.admin', compact('user_id', 'orders', 'contact'));
     }
 
     /**
