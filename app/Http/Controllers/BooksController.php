@@ -22,6 +22,12 @@ class BooksController extends Controller
         //
     }
 
+    public function conta()
+    {
+        //
+        phpinfo();
+    }
+
     public function showCart()
     {
         $user = Auth::user();

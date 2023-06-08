@@ -120,7 +120,7 @@
                         @foreach($bookNumber as $book)
                             <div class="item">
                                 <div class="cause-entry">
-                                    <a href="#" class="img"><img src="{{url('/book-pics/'.$book->cover_pic)}}"
+                                    <a href="#" class="img"><img src="{{url('/public/book-pics/'.$book->cover_pic)}}"
                                                                  alt="not found" style="height: 265px;"></a>
                                     {{--                                    <a href="#" class="img"--}}
                                     {{--                                       style="background-image: url{{url('/book-pics/'.$book->back_pic)}};"></a>--}}
@@ -223,7 +223,7 @@
                     <div class="col-md-4 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch">
                             <a href="blog-single.html" class="block-20"
-                               style="background-image: url({{('/blog-pics/'.$blogs->cover_pic)}});">
+                               style="background-image: url({{('/public/blog-pics/'.$blogs->cover_pic)}});">
                             </a>
                             <div class="text p-4 d-block">
                                 <div class="meta mb-3">
@@ -255,8 +255,9 @@
                         @foreach($project as $projects)
                             <div class="item">
                                 <div class="cause-entry">
-                                    <a href="#" class="img"><img src="{{url('/project-pics/'.$projects->cover_pic)}}"
-                                                                 alt="not found" style="height: 265px;"></a>
+                                    <a href="#" class="img"><img
+                                            src="{{url('/public/project-pics/'.$projects->cover_pic)}}"
+                                            alt="not found" style="height: 265px;"></a>
                                     <div class="text p-3 p-md-4">
                                         <h3><a href="#">{{$projects->project_name}}</a></h3>
                                         <p>Summary:</p>

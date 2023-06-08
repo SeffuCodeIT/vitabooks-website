@@ -144,29 +144,45 @@
                 </div>
             @endif
             <h1 class="text-info text-center">Add New Kenyan Socialist Magazine</h1>
-            <form method="POST" enctype="multipart/form-data" id="upload-file" action="{{url('store')}}">
+            {!! Form::open(['method'=>'POST', 'action'=>'\App\Http\Controllers\SocialistController@store','files'=>true]) !!}
+            {{csrf_field()}}
+            {{--            <form method="POST" enctype="multipart/form-data" id="upload-file" action="{{url('saveMagazine')}}">--}}
 
-                {{csrf_field()}}
-                <div class="row">
+            {{--                {{csrf_field()}}--}}
+            <div class="row">
 
-                    <div class="col-md-12">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Magazine Name"><br>
+                        <input type="text" name="short_desc" class="form-control"
+                               placeholder="Short Description 20 words max"><br>
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Magazine Name"><br>
-                            <input type="text" name="short_desc" class="form-control"
-                                   placeholder="Short Description 20 words max"><br>
-                            <label for="file">Choose Magazine File</label>
-                            <input type="file" name="file" placeholder="Choose file" id="file"><br>
-                            <label for="front_pic">Choose Picture</label>
-                            <input type="file" name="front_pic" placeholder="Choose Picture" id="front_pic">
-
+                            {!! Form::label('Choose Magazine File:') !!}
+                            {!! Form::file('file',null,['class'=>'form-control']) !!}
                         </div>
-                    </div>
+                        {{--                            <label for="file">Choose Magazine File</label>--}}
+                        {{--                            <input type="file" name="file" placeholder="Choose file" id="file"><br>--}}
+                        <div class="form-group">
+                            {!! Form::label('Choose Picture:') !!}
+                            {!! Form::file('front_pic',null,['class'=>'form-control']) !!}
+                        </div>
+                        {{--                            <label for="front_pic">Choose Picture</label>--}}
+                        {{--                            <input type="file" name="front_pic" placeholder="Choose Picture" id="front_pic">--}}
 
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                     </div>
                 </div>
-            </form>
+                <div class="form-group">
+                    <div class="form-group">
+                        {!! Form::submit('Save',['class'=>'btn btn-primary']) !!}
+                    </div>
+                </div>
+                {!! Form::close() !!}
+
+                {{--                    <div class="col-md-12">--}}
+                {{--                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>--}}
+                {{--                    </div>--}}
+            </div>
+            {{--            </form>--}}
 
         </div>
         <div class="col-md-3"></div>
@@ -193,7 +209,7 @@
             @endif
             <h1 class="text-info text-center">Add New Blog</h1>
             <form method="POST" enctype="multipart/form-data" id="upload-file"
-                  action="storeBlog">
+                  action="{{url("storeBlog")}}">
 
                 {{csrf_field()}}
                 <div class="row">

@@ -13,7 +13,7 @@
                     @foreach($magazine as $magazines)
                         <div class="item">
                             <div class="cause-entry">
-                                <a href="#" class="img"><img src="{{url('/mag-pics/'.$magazines->frontPic)}}"
+                                <a href="#" class="img"><img src="{{url('/public/mag-pics/'.$magazines->frontPic)}}"
                                                              alt="not found" style="height: 265px;"></a>
                                 <div class="text p-3 p-md-4">
                                     <h3><a href="#">{{$magazines->name}}</a></h3>
@@ -78,7 +78,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-5 heading-section ftco-animate text-center">
                     {{--                <div class="container">--}}
-                    <iframe src="/magazines/{{$magazineFile->file}}" height="1000" width="1000"></iframe>
+                    <iframe src="/public/magazines/{{$magazineFile->file}}" height="1000" width="1000"></iframe>
                     {{--                </div>--}}
                 </div>
             </div>

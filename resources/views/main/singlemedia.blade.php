@@ -10,7 +10,7 @@
                         <div class="card">
                             {{--                    <h5>Title description, Dec 7, 2017</h5>--}}
                             <iframe src="" frameborder="0"></iframe>
-                            <img src="{{url('/media-pics/'.$singleMedia->cover_pic)}}" alt=""
+                            <img src="{{url('/public/media-pics/'.$singleMedia->cover_pic)}}" alt=""
                                  style="width:70%; height:400px; margin-left:260px;" class=""><br>
                             {{--                        <article>{{Str::words( $blog->body, 120)}}</article>--}}
 

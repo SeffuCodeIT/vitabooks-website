@@ -7,7 +7,8 @@
             <div class="card bg-info m-1" style="max-width: 540px; text-align:center; display:inline-block;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{url('/book-pics/'.$book->cover_pic)}}" class="img-fluid rounded-start" alt="...">
+                        <img src="{{url('/public/book-pics/'.$book->cover_pic)}}" class="img-fluid rounded-start"
+                             alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

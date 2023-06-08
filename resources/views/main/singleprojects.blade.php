@@ -8,7 +8,7 @@
                     <div class="col-lg-8 col-12">
                         <div class="cause-details-wrapper">
                             <div class="featured-thumb">
-                                <img src="{{url('/project-pics/'.$singleProjects->cover_pic)}}" alt=""
+                                <img src="{{url('/public/project-pics/'.$singleProjects->cover_pic)}}" alt=""
                                      style="height: 400px; width: 100%;">
                             </div>
                             <div class="give-form-wrap cause-form-wrap">
@@ -48,11 +48,11 @@
                                 <p>{{$singleProjects->project_body}} </p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <img src="{{url('/project-pics/'.$singleProjects->back_pic)}}"
+                                        <img src="{{url('/public/project-pics/'.$singleProjects->back_pic)}}"
                                              alt="fundraising">
                                     </div>
                                     <div class="col-md-6">
-                                        <img src="{{url('/project-pics/'.$singleProjects->back_pic)}}"
+                                        <img src="{{url('/public/project-pics/'.$singleProjects->back_pic)}}"
                                              alt="fundraising">
                                     </div>
                                 </div>
@@ -92,18 +92,21 @@
                                     <a href="{{asset("assetsproj/img/sidebar/g1.jpg")}}"
                                        class="single-cause-img popup-gallery"
                                        style="background-image: url('{{asset("assetsproj/img/sidebar/g1.jpg")}}')"></a>
-                                    <a href="assetsproj/img/sidebar/g1.jpg" class="single-cause-img popup-gallery"
+                                    <a href="{{asset("assetsproj/img/sidebar/g1.jpg")}}"
+                                       class="single-cause-img popup-gallery"
                                        style="background-image: url('{{asset("assetsproj/img/sidebar/g1.jpg")}}')"></a>
-                                    <a href="assetsproj/img/sidebar/g1.jpg" class="single-cause-img popup-gallery"
+                                    <a href="{{asset("assetsproj/img/sidebar/g1.jpg")}}"
+                                       class="single-cause-img popup-gallery"
                                        style="background-image: url('{{asset("assetsproj/img/sidebar/g1.jpg")}}')"></a>
-                                    <a href="assetsproj/img/sidebar/g1.jpg" class="single-cause-img popup-gallery"
+                                    <a href="{{asset("assetsproj/img/sidebar/g1.jpg")}}"
+                                       class="single-cause-img popup-gallery"
                                        style="background-image: url('{{asset("assetsproj/img/sidebar/g1.jpg")}}')"></a>
                                 </div>
                             </div>
                             <!-- single-sidebar-widgets -->
                             <div
                                 class="sidebar-promo-widgets bg-cover text-white text-center d-flex align-items-center justify-content-center"
-                                style="background-image: url('assets/img/home1/cause1.jpg')">
+                                style="background-image: url({{'assets/img/home1/cause1.jpg'}})">
                                 <span>Call To Action</span>
                                 <h3>There are no secrets to success</h3>
                                 <a href="contact.html">Get In Touch</a>

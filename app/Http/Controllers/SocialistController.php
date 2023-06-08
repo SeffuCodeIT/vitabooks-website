@@ -32,27 +32,28 @@ class SocialistController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+//        echo "you are in the route";
         //
         $data = new Socialist();
 //        request pdf file
         $file = $request->file;
-        $filename = time().'.'.$file->getClientOriginalExtension();
-        $request->file->move('magazines',$filename);
-        $data->file=$filename;
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $request->file->move('magazines', $filename);
+        $data->file = $filename;
 //        request file name
-        $data->name=$request->name;
+        $data->name = $request->name;
 //        request short description
-        $data->short_desc=$request->short_desc;
+        $data->short_desc = $request->short_desc;
 //        request file pic
-        $frontPic  = $request->file('front_pic');
-        $frontPicFileName = time().$frontPic->getClientOriginalName();
-        $frontPic->move('mag-pics',$frontPicFileName);
-        $data->frontPic=$frontPicFileName;
+        $frontPic = $request->file('front_pic');
+        $frontPicFileName = time() . $frontPic->getClientOriginalName();
+        $frontPic->move('mag-pics', $frontPicFileName);
+        $data->frontPic = $frontPicFileName;
 
         $data->save();
 
@@ -62,7 +63,7 @@ class SocialistController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -73,7 +74,7 @@ class SocialistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -84,8 +85,8 @@ class SocialistController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -96,7 +97,7 @@ class SocialistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

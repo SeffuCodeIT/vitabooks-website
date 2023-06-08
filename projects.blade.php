@@ -4,7 +4,7 @@
     @if(isset($project))
         @foreach($project as $projects)
             <div class="card m-3" style="width: 18rem; display:inline-block;">
-                <img src="{{url('/public/project-pics/'.$projects->cover_pic)}}" class="card-img-top" alt="...">
+                <img src="{{url('/project-pics/'.$projects->cover_pic)}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><strong>{{$projects->project_name}}</strong></h5>
                     <p class="card-text">{{Str::limit($projects->project_short_desc,300)}}.</p>

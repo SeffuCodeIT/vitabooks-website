@@ -8,30 +8,30 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset("assets/css/open-iconic-bootstrap.min.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/animate.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/open-iconic-bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/animate.css")}}">
 
-    <link rel="stylesheet" href="{{asset("assets/css/owl.carousel.min.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/owl.theme.default.min.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/magnific-popup.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/owl.carousel.min.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/owl.theme.default.min.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/magnific-popup.css")}}">
 
-    <link rel="stylesheet" href="{{asset("assets/css/aos.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/aos.css")}}">
 
-    <link rel="stylesheet" href="{{asset("assets/css/ionicons.min.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/ionicons.min.css")}}">
 
-    <link rel="stylesheet" href="{{asset("assets/css/bootstrap-datepicker.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/jquery.timepicker.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/bootstrap-datepicker.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/jquery.timepicker.css")}}">
 
 
-    <link rel="stylesheet" href="{{asset("assets/css/flaticon.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/icomoon.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/singlestyle.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/flaticon.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/icomoon.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/css/style.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assets/singlestyle.css")}}">
     {{--    mneti huru--}}
     {{--    <link rel="shortcut icon" href="{{asset("assetsproj/img/favicon.png")}}">--}}
     {{--    <!-- ===========  All Stylesheet ================= -->--}}
     {{--    <!--  Icon css plugins -->--}}
-    <link rel="stylesheet" href="{{asset("assetsproj/css/icons.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assetsproj/css/icons.css")}}">
     {{--    <!--  animate css plugins -->--}}
     {{--    <link rel="stylesheet" href="{{asset("assetsproj/css/animate.css")}}">--}}
     {{--    <!--  magnific-popup css plugins -->--}}
@@ -39,14 +39,14 @@
     {{--    <!-- metismenu css file -->--}}
     {{--    <link rel="stylesheet" href="{{asset("assetsproj/css/metismenu.css")}}">--}}
     {{--    <!--  main style css file -->--}}
-    <link rel="stylesheet" href="{{asset("assetsproj/css/style.css")}}">
+    <link rel="stylesheet" href="{{secure_asset("assetsproj/css/style.css")}}">
 
-    <script src="https://kit.fontawesome.com/a904b4a626.js" crossorigin="anonymous"></script>
-    <!-- CSS only -->
-    {{--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"--}}
-    {{--          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>--}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    {{--    <script src="https://kit.fontawesome.com/a904b4a626.js" crossorigin="anonymous"></script>--}}
+    {{--    <!-- CSS only -->--}}
+    {{--    --}}{{--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"--}}
+    {{--    --}}{{--          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>--}}
+    {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"--}}
+    {{--          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">--}}
 </head>
 <body>
 {{--  start of navbar--}}
@@ -148,7 +148,10 @@
                     <h2 class="ftco-heading-2">Recent Blog</h2>
                     {{--<!--                    --><?php--}}
                     <?php
-                    use Illuminate\Support\Facades\Auth;$posts = \App\Models\Blog::limit(3)->get();
+
+                    use Illuminate\Support\Facades\Auth;
+
+                    $posts = \App\Models\Blog::limit(3)->get();
                     //                    $user = Auth::user()->name;
                     //                    $comments = \App\Models\Comm
 
@@ -230,25 +233,25 @@
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2 hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
-<script src="{{asset("assets/js/jquery.min.js")}}"></script>
-<script src="{{asset("assets/js/jquery-migrate-3.0.1.min.js")}}"></script>
-<script src="{{asset("assets/js/popper.min.js")}}"></script>
-<script src="{{asset("assets/js/bootstrap.min.js")}}"></script>
-<script src="{{asset("assets/js/jquery.easing.1.3.js")}}"></script>
-<script src="{{asset("assets/js/jquery.waypoints.min.js")}}"></script>
-<script src="{{asset("assets/js/jquery.stellar.min.js")}}"></script>
-<script src="{{asset("assets/js/owl.carousel.min.js")}}"></script>
-<script src="{{asset("assets/js/jquery.magnific-popup.min.js")}}"></script>
-<script src="{{asset("assets/js/aos.js")}}"></script>
-<script src="{{asset("assets/js/jquery.animateNumber.min.js")}}"></script>
-<script src="{{asset("assets/js/bootstrap-datepicker.js")}}"></script>
-<script src="{{asset("assets/js/jquery.timepicker.min.js")}}"></script>
-<script src="{{asset("assets/js/scrollax.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery-migrate-3.0.1.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/popper.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/bootstrap.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery.easing.1.3.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery.waypoints.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery.stellar.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/owl.carousel.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery.magnific-popup.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/aos.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery.animateNumber.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/bootstrap-datepicker.js")}}"></script>
+<script src="{{secure_asset("assets/js/jquery.timepicker.min.js")}}"></script>
+<script src="{{secure_asset("assets/js/scrollax.min.js")}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="{{asset("js/google-map.js")}}"></script>
-<script src="{{asset("assets/js/main.js")}}"></script>
+<script src="{{secure_asset("js/google-map.js")}}"></script>
+<script src="{{secure_asset("assets/js/main.js")}}"></script>
 
 </body>
 </html>

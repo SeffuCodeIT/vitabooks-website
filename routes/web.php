@@ -25,11 +25,12 @@ Route::get('/', function () {
 //Route::get('/index', function () {
 //    return view("layout.index");
 //});
-//Route::resource('/index', \App\Http\Controllers\IndexController::class);
+Route::resource('/index', \App\Http\Controllers\IndexController::class);
 //Route::post('/save-inmate', "\App\Http\Controllers\InmatesController::class@store");
 //Route::get('/viewBooks', \App\Http\Controllers\IndexController::class, 'viewBooks')->name('viewBooks');
 //Route::get('/contact-us', [ContactController::class, 'index']);
 
+Route::get('/contact-us', [\App\Http\Controllers\BooksController::class, 'conta'])->name('conta');
 Route::post('/addCart/{id}', [\App\Http\Controllers\BooksController::class, 'addCart'])->name('addCart');
 Route::get('/showCart', [\App\Http\Controllers\BooksController::class, 'showCart'])->name('showCart');
 Route::get('/deleteItem/{id}', [\App\Http\Controllers\BooksController::class, 'deleteItem'])->name('deleteItem');
@@ -51,12 +52,12 @@ Route::post('comments', [CommentController::class, 'store'])->name('comments.sto
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin', [\App\Http\Controllers\IndexController::class, 'admin'])->name('admin');
+    Route::post('/save-magazine', [\App\Http\Controllers\SocialistController::class, 'store']);
     Route::post('/save-book', [\App\Http\Controllers\BooksController::class, 'store']);
     Route::post('/save-project', [\App\Http\Controllers\ProjectsController::class, 'store']);
     Route::post('/save-media', [\App\Http\Controllers\MediaController::class, 'store']);
     Route::post('/save-gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
     Route::post('/storeBlog', [\App\Http\Controllers\BlogController::class, 'store']);
-    Route::post('/store', [\App\Http\Controllers\SocialistController::class, 'store']);
 });
 Auth::routes();
 
